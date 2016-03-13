@@ -1,5 +1,6 @@
-package com.bignerdranch.android.criminalintent;
+package com.oliverthor.android.criminalintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -36,13 +36,26 @@ public class CrimeListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI()
     {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
 
-        mAdapter = new CrimeAdapter(crimes);
-        mCrimeRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new CrimeAdapter(crimes);
+            mCrimeRecyclerView.setAdapter(mAdapter);
+
+        } else {
+
+            //mAdapter.notifyDataSetChanged();
+            mAdapter.notifyItemChanged(mAdapter.getLastCrimePosition());
+        }
 
     }
 
@@ -58,7 +71,6 @@ public class CrimeListFragment extends Fragment {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            //mTitleTextView = (TextView) itemView;
             mTitleTextView = (TextView)
                     itemView.findViewById(R.id.list_item_crime_title_text_view);
             mDateTextView = (TextView)
@@ -78,15 +90,19 @@ public class CrimeListFragment extends Fragment {
         @Override
         public void onClick(View v)
         {
-            Toast.makeText(getActivity(),
-                    mCrime.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            mAdapter.setLastCrimePosition(this.getLayoutPosition());
+
+            startActivity(intent);
         }
+
+
     }
 
     private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
 
         private List<Crime> mCrimes;
+        private int mLastCrimePosition;
 
         public CrimeAdapter(List<Crime> crimes) {
             mCrimes = crimes;
@@ -111,6 +127,17 @@ public class CrimeListFragment extends Fragment {
         public int getItemCount() {
             return mCrimes.size();
         }
+
+        private void setLastCrimePosition(int position)
+        {
+            mLastCrimePosition = position;
+        }
+
+        public int getLastCrimePosition()
+        {
+            return mLastCrimePosition;
+        }
+
     }
 
 
