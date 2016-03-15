@@ -128,6 +128,7 @@ public class CrimeListFragment extends Fragment {
             return mCrimes.size();
         }
 
+
         private void setLastCrimePosition(int position)
         {
             mLastCrimePosition = position;
