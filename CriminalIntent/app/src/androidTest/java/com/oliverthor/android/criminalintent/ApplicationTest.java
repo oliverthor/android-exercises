@@ -1,4 +1,4 @@
-package com.bignerdranch.android.criminalintent;
+package com.oliverthor.android.criminalintent;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
