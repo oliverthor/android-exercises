@@ -1,11 +1,7 @@
 package com.oliverthor.android.criminalintent;
 
-//<<<<<<< HEAD
-//import android.app.FragmentManager;
-//=======
 import android.app.Activity;
 import android.content.Intent;
-//>>>>>>> origin/ch12-dialogs
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.oliverthor.android.criminalintent.CustomAction.DoneOnEditorActionListener;
@@ -63,6 +58,14 @@ public class CrimeFragment extends Fragment {
 
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        CrimeLab.get(getActivity())
+                .updateCrime(mCrime);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -119,7 +122,7 @@ public class CrimeFragment extends Fragment {
         mRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CrimeLab.get(getActivity()).removeCrime(mCrime);
+                CrimeLab.get(getActivity()).deleteCrime(mCrime);
                 getActivity().finish();
 
             }

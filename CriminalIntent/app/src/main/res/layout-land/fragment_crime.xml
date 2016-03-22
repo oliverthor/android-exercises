@@ -18,6 +18,8 @@
 		android:layout_marginLeft="16dp"
 		android:layout_marginRight="16dp"
 		android:hint="@string/crime_title_hint"
+		android:singleLine="true"
+		android:imeOptions="actionDone"
 		/>
 
 	<TextView
