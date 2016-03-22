@@ -1,5 +1,6 @@
 package com.oliverthor.android.criminalintent;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+
+import com.oliverthor.android.criminalintent.CustomAction.DoneOnEditorActionListener;
 
 import java.text.SimpleDateFormat;
 import java.util.UUID;
@@ -25,6 +28,7 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private Button mRemoveButton;
 
     // consts
     private static final String CRIME_DATE_FORMAT = "EEEE, MMM d yyyy";
@@ -71,6 +75,7 @@ public class CrimeFragment extends Fragment {
                 // This one too
             }
         });
+        mTitleField.setOnEditorActionListener(new DoneOnEditorActionListener());
 
         mDateButton = (Button) v.findViewById(R.id.crime_date);
 
@@ -86,6 +91,16 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mCrime.setSolved(isChecked);
+            }
+        });
+
+        mRemoveButton = (Button) v.findViewById(R.id.crime_remove);
+        mRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CrimeLab.get(getActivity()).removeCrime(mCrime);
+                getActivity().finish();
+
             }
         });
 
