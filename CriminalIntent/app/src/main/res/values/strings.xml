@@ -23,5 +23,6 @@
 		<item quantity="other">%1$s crimes</item>
 	</plurals>
 
+	<string name="date_picker_title">Date of crime:</string>
 
 </resources>

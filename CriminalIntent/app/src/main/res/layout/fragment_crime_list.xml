@@ -5,19 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<TextView-->
-        <!--android:id="@+id/crime_empty_list"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/crime_empty_list_label"/>-->
-
-    <!--<Button-->
-        <!--android:id="@+id/crime_empty_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/crime_empty_button_text"-->
-        <!--android:layout_below="@id/crime_empty_list"/>-->
-
 
 </android.support.v7.widget.RecyclerView>
