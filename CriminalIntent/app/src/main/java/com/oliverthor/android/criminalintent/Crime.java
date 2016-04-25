@@ -14,6 +14,7 @@ public class Crime {
     private Date mDate;
     private boolean mSolved;
     private String mSuspect;
+    private String mSuspectNumber;
 
     public Crime() {
 
@@ -60,5 +61,9 @@ public class Crime {
     public void setSuspect(String suspect) {
         this.mSuspect = suspect;
     }
+
+    public String getSuspectNumber() { return mSuspectNumber;    }
+
+    public void setSuspectNumber(String mSuspectNumber) { this.mSuspectNumber = mSuspectNumber; }
 
 }

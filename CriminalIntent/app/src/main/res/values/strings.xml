@@ -12,6 +12,7 @@
 	<string name="crime_remove_button">Remove crime</string>
 	<string name="crime_suspect_text">Choose Suspect</string>
 	<string name="crime_report_text">Send Crime Report</string>
+	<string name="crime_suspect_call">Call Suspect</string>
 
     <string name="crime_empty_list_label">No crimes added</string>
     <string name="crime_empty_button_text">Add crime</string>
@@ -37,5 +38,6 @@
 	<string name="send_report">Send crime report via</string>
 
 	<string name="date_picker_title">Date of crime:</string>
+
 
 </resources>
