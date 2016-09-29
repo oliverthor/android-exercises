@@ -36,11 +36,17 @@ public class PictureUtils {
         return BitmapFactory.decodeFile(path, options);
     }
 
+    public static Bitmap getBetterScaledBitmap(String path, int imageWidth, int imageHeight) {
+
+        return getScaledBitmap(path, imageWidth, imageHeight);
+    }
+
     public static Bitmap getScaledBitmap(String path, Activity activity) {
         Point size = new Point();
         activity.getWindowManager().getDefaultDisplay()
                 .getSize(size);
 
+//        return getScaledBitmap(path, size.x, size.y);
         return getScaledBitmap(path, size.x, size.y);
     }
 }
