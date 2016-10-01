@@ -149,9 +149,11 @@ public class CrimeListFragment extends Fragment {
 
         } else {
 
+            mAdapter.setCrimes(crimes);
             mAdapter.notifyDataSetChanged();
+
             //TODO This only updates the first element entered, no heed for paged crimes.
-            //also causes a crash when deleting crimnes
+            //also causes a crash when deleting crimes
             //mAdapter.notifyItemChanged(mAdapter.getLastCrimePosition());
         }
 
@@ -238,6 +240,10 @@ public class CrimeListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mCrimes.size();
+        }
+
+        public void setCrimes(List<Crime> crimes) {
+            mCrimes = crimes;
         }
 
 
