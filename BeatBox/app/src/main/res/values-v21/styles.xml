@@ -6,4 +6,9 @@
 		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
 		<item name="android:statusBarColor">@android:color/transparent</item>
 	</style>
+
+	<style name="BeatBoxButton.Material" parent="android:style/Widget.Material.Button">
+		<item name="android:background">@drawable/button_beat_box</item>
+		<item name="android:elevation">0dp</item>
+	</style>
 </resources>
