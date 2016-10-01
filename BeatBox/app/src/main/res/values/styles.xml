@@ -5,10 +5,20 @@
 		<item name="colorPrimary">@color/red</item>
 		<item name="colorPrimaryDark">@color/dark_red</item>
 		<item name="colorAccent">@color/gray</item>
+
 		<item name="android:colorBackground">@color/soothing_blue</item>
+		<item name="android:buttonStyle">@style/BeatBoxButton.Material</item>
 	</style>
 
 	<style name="BeatBoxButton">
+		<item name="android:background">@color/gray</item>
+	</style>
+
+	<style name="BeatBoxButton.Holo" parent="android:style/Widget.Holo.Button">
+		<item name="android:background">@color/green</item>
+	</style>
+
+	<style name="BeatBoxButton.Material" parent="android:style/Widget.Material.Button">
 		<item name="android:background">@color/dark_blue</item>
 	</style>
 
